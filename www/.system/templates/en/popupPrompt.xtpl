@@ -1,0 +1,19 @@
+  <div class="popupWrapper js-popupPrompt">
+    <div class="contentPopup">
+      <div class="loadingPopup"></div>
+      <a class="btnHidePopup js-closePopup">&times;</a>
+      <div class="requestPopup">
+        <p>Enter your secret key, please!</p>
+      </div>
+      <form action="">
+        <div class="fieldItemPopup">
+          <input type="password" name="note_private_password" placeholder="Your password">
+        </div>
+        <div class="describeError">It is wrong password</div>
+        <div class="managePopup">
+          <a href="#" class="btn left btnGreen js-enterPopup">Ok</a>
+          <a href="#" class="btn right js-closePopup">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>

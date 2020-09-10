@@ -1,0 +1,15 @@
+DirectoryIndex index.php
+
+php_flag magic_quotes_gpc 0
+php_flag magic_quotes_gpc_runtime 0
+
+RewriteEngine on
+
+RewriteRule ^favicon\.(png|ico|gif)$		/files/favicon\.$1		[L]
+RewriteRule ^/?([a-z0-9]{,3}/)get/d(/?|/[^/]+/?)$ /index.php [L]
+
+#RewriteCond %{REQUEST_FILENAME} \.(html?|php|aspx?)$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . /index.php [L]
+
+#ErrorDocument 404 /index.php?header=404

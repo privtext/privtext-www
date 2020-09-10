@@ -1,0 +1,22 @@
+<!-- BEGIN: header --><!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<title>404 Not Found</title>
+</head>
+<!-- END: header -->
+
+<!-- BEGIN: top -->
+<body>
+<!-- END: top -->
+
+<!-- BEGIN: main -->
+<h1>Not Found</h1>
+The requested URL {REQUESTED_URI} was not found on this server.
+<hr>
+<i>{HTTP_HOST}</i>
+<!-- END: main -->
+
+<!-- BEGIN: bottom -->
+</body>
+</html>
+<!-- END: bottom -->

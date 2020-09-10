@@ -1,0 +1,25 @@
+        <div class="resultContentSettings">
+          <p>
+            <strong>Settings</strong>
+          </p>
+          <div class="js-showResultSettings"><a href="#" class="js-removeCurrentSettings">&times;</a><strong>Save:&nbsp;</strong><span href="#" class="js-showtimelive"></span></div>
+          <div class="js-showResultSettings"><a href="#" class="js-removeCurrentSettings">&times;</a><strong>Password:&nbsp;</strong><span href="#" class="js-showencpasswd"></span></div>
+          <div class="js-showResultSettings"><a href="#" class="js-removeCurrentSettings">&times;</a><strong>Email:&nbsp;</strong><span href="#" class="js-shownoticemail"></span></div>
+        </div>
+        <div class="body-content">
+          <div class="row">
+              <div class="col-lg-4">
+                  <h2>Secured</h2>
+                  <p>We do not have an access to your data, since a encryption key stored on the Client’s side, while server delivers the encrypted data only. The software generates a key, encrypt your data and return you the secured URL. We would like to offer you the usage of 256-bit symmetric AES encryption.</p>
+              </div>
+              <div class="col-lg-4">
+                  <h2>Data life</h2>
+                  <p>You could manually set the data life for your Note.<br />
+										 Max data life is 1 year, then it will be deleted automatically.</p>
+              </div>
+              <div class="col-lg-4">
+                  <h2>Fast & Useful</h2>
+                  <p>You can use the service within Python, Binary Clients, without any limits concerning amount of links to be generated.</p>
+              </div>
+          </div>
+      </div>

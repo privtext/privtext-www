@@ -1,0 +1,12 @@
+  <div class="popupWrapper js-popupErrorMaxSize">
+    <div class="contentPopup">
+      <a class="btnHidePopup js-closePopup">&times;</a>
+      <div class="requestPopup">
+        <p style="color: #a00;">Your note has size more than 1Mb after encryption.</p>
+        <p style="color: #a00;">Use smaller note, please.</p>
+      </div>
+      <div class="managePopup">
+        <a href="#" class="btn center btnGreen js-closePopup">Understood</a>
+      </div>
+    </div>
+  </div>

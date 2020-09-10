@@ -1,0 +1,218 @@
+<!-- BEGIN: ajax -->
+    <div class="container result-hide">
+      <p class="lead">
+        <a href="" class="btnRequest js-toggleHiddenDescription">?</a>
+        <span style="display: none;" class="note-delete-message note-delete-message-now">Your note has been deleted.</span>
+        <span class="note-delete-message note-delete-message-0">The message will be deleted as soon as it is read.</span>
+        <span style="display: none;" class="note-delete-message note-delete-message-3600">Your note will be deleted after 1 hour from now.</span>
+        <span style="display: none;" class="note-delete-message note-delete-message-86400">Your note will be deleted after 1 day from now</span>
+        <span style="display: none;" class="note-delete-message note-delete-message-259200">Your note will be deleted after 3 days from now</span>
+        <span style="display: none;" class="note-delete-message note-delete-message-604800">Your note will be deleted after 1 week from now</span>
+        <span style="display: none;" class="note-delete-message note-delete-message-2592000">Your note will be deleted after 1 month from now</span>
+      </p>
+      <div class="hiddenDescrition">
+          <p>With PrivText, you can create secure notes that  self-destruct after being read.</p>
+          <ol>
+              <li>Write your note and click "Create Note". </li>
+              <li>Your web browser encrypts the text, sends it to the server, and creates a one-time link.</li>
+              <li>Send the link to the recipient.</li>
+              <li>The recipient opens the link, decrypting the message in their web browser, and making the server delete the link.</li>
+          </ol>
+          <p>Click the Settings button to configure options for your note. For example, you can enter your own password (the encryption key) or specify the note's lifetime.</p>
+          <p>The password (encryption key) is an integral part of the link, and is located after the # character in the URL address. This part of the link is visible to the web browser only, and the encryption happens solely on the frontend, without the server participation, and the server doesn't know the encryption key.</p>
+          <p>PrivText is an open source project, and its code is freely available on GitHub at <a href="https://github.com/privtext/" target="_blank">link</a>.</p>
+      </div>
+      <form action="">
+          <div class="wrapContentForm">
+            <div class="titleForm">Reply Note</div>
+            <p style="margin: 0;">
+                <textarea name="privdata" id="privdata" cols="30" rows="10" class="form-control" placeholder="Write your note here..."></textarea>
+            </p>
+            <div class="managerForm">
+                <div class="btnsForm">
+                    <a href="#" onclick="return false;" id="createButton" class="btn btnGreen btnNew">Create Note</a>
+                    <input type="hidden" id="proof" value="">
+                </div>
+                <a href="" class="btnSettings btn btnGreen js-showSettings">Settings</a>
+            </div>
+          </div>
+      </form>
+      <p class="result-link">Timer: <span id="timer"></span></p>
+      <div class="resultContentSettings">
+          <p>
+            <strong>Settings</strong>
+          </p>
+          <div class="js-showResultSettings"><a href="#" class="js-removeCurrentSettings">&times;</a><strong>Save:&nbsp;</strong><span href="#" class="js-showtimelive"></span></div>
+          <div class="js-showResultSettings"><a href="#" class="js-removeCurrentSettings">&times;</a><strong>Password:&nbsp;</strong><span href="#" class="js-showencpasswd"></span></div>
+          <div class="js-showResultSettings"><a href="#" class="js-removeCurrentSettings">&times;</a><strong>Email:&nbsp;</strong><span href="#" class="js-shownoticemail"></span></div>
+        </div>
+    </div>
+    
+    <div class="container result-link">
+      <p class="lead">
+        <span style="display: none;" id="timelive1">The note will self-destruct in <span id="note_delete_minutes">XX</span> minutes and <span id="note_delete_seconds">XX</span> seconds.</span>
+        <span style="display: none;" id="timelive0">The note will be deleted once being read.</span>
+      </p>
+      <form action="">
+          <div class="titleForm"><span style="letter-spacing: 0.06em;">Your browser-view link:</span> <a href="" style="display: none;" class="button-delete-message-now">Delete Now</a> <!-- BEGIN: rm --><a href="" data-clipboard-target="privdata" class="btnCopy js-copyToBuffer">Copy link <!-- Select link --></a><!-- End: rm --> <a href="" class="btnCopy js-popupQRCode-btn" style="width: 20px; height: 20px; background: url(/files/img/qrico_20.png) no-repeat 0 50%;"></a></div>
+          <p style="margin: 0;">
+              <textarea name="privdata" readonly="readonly" id="browser-view" cols="30" rows="10" class="form-control" placeholder="Your result link"></textarea>
+          </p>
+          <div class="managerForm">
+              <div class="btnsForm">
+                  <a href="/" class="btn btnGreen btnNew"><span>+</span> New</a>
+                  <a data-clipboard-target="privdata" href="#" class="btn btnGreen js-copyToBuffer" style="box-sizing: border-box;  display: inline-block;padding-left: 34px;padding-right: 34px;letter-spacing: 0.08em;float: left;max-width: 49%;">Copy Link</a>
+                  <input type="hidden" id="proof" value="">
+              </div>
+          </div>
+      </form>
+    </div>
+  </main>
+  
+  <script type="text/javascript">
+    _PAGE_OPENED_LEFT_SETTINGS_BOX = false;
+    
+    $('.js-copyToBuffer').click(function(e){
+  		e.preventDefault();
+  		//document.getElementById("browser-view").select();
+
+
+      // document.getElementById("browser-view").select();
+      // document.execCommand('copy');
+
+      el = document.getElementById("browser-view");
+
+      // handle iOS as a special case
+      if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
+
+          // save current contentEditable/readOnly status
+          var editable = el.contentEditable;
+          var readOnly = el.readOnly;
+
+          // convert to editable with readonly to stop iOS keyboard opening
+          el.contentEditable = true;
+          el.readOnly = true;
+
+          // create a selectable range
+          var range = document.createRange();
+          range.selectNodeContents(el);
+
+          // select the range
+          var selection = window.getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          el.setSelectionRange(0, 999999);
+
+          // restore contentEditable/readOnly to original state
+          el.contentEditable = editable;
+          el.readOnly = readOnly;
+      }
+      else {
+          el.select();
+      }
+
+      document.execCommand('copy');
+
+      
+
+      
+  		return false;
+  	});
+    
+    // Toggle hidden description
+    (function() {
+        var btn = $('.js-toggleHiddenDescription'),
+            hiddenBlock = $('.hiddenDescrition');
+        
+        btn.on('click', function(e) {
+            e.preventDefault();
+            
+            hiddenBlock.slideToggle('fast');
+        });
+    })();
+    
+    // Show Settings
+    (function() {
+        var btn = $('.js-showSettings'),
+            hiddenSettings = $('.wrapLeftSettings'),
+            btnClose = $('.js-hideSettings'),
+            doc = $('body'),
+            underBg = $('.underBg');
+        
+        btn.on('click', function(e) {
+            e.preventDefault();
+            
+            hiddenSettings.animate({
+                'left': '0'
+            },500, function() {
+                hiddenSettings.addClass('opened').removeAttr('style');
+            });
+
+            doc.animate({
+                'margin-left': '320px'
+            }, 500, function() {
+                doc.addClass('slideToRight').removeAttr('style');
+            });
+
+            if ($(window).width() < 1024) {
+                underBg.fadeIn('fast', function() {
+                    underBg.addClass('showed').removeAttr('style');
+                });
+            }
+
+            if ($(this).closest('.mainHeader').length == 0) {
+                $(this).fadeOut('fast');
+            }
+
+            // $('html').css('overflow', 'hidden');
+
+            setCookie('openedLeft', 1, 72000);
+        });
+        
+        btnClose.on('click', function(e) {
+            e.preventDefault();
+
+            hiddenSettings.animate({
+                'left': '-320px'
+            }, 500, function() {
+                hiddenSettings.removeClass('opened').removeAttr('style');
+            });
+
+            doc.animate({
+                'margin-left': '0'
+            }, 500, function() {
+                doc.removeClass('slideToRight').removeAttr('style');
+            });
+
+            underBg.fadeOut('fast', function() {
+                underBg.removeClass('showed').removeAttr('style');
+            });
+            
+            if ($(window).width() > 767) {
+                btn.fadeIn('fast');
+            }
+
+            // $('html').removeAttr('style');
+
+            setCookie('openedLeft', 0, 72000);
+        });
+    })();
+    
+    widgetPrivText.init(widgetPrivText.MODE_ENCODE, '#privdata', '#browser-view', '#createButton');
+    widgetPrivText.setopt('switch_selector_start', '.result-hide');
+    widgetPrivText.setopt('switch_selector_result', '.result-link');
+    widgetPrivText.setopt('proof_result_time_selector', '#timer');
+    widgetPrivText.setopt('proof_result_handler',function(proof){ $('#proof').val(proof); });
+    widgetPrivText.run();
+
+
+    $('.js-popupQRCode-btn').on('click', function(e) {
+        e.preventDefault();
+        el = document.getElementById("browser-view");
+        openPopupQRCode(null, el.value);
+        return false;
+    });
+
+  </script>
+
+<!-- END: ajax -->

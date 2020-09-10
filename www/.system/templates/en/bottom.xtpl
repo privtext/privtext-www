@@ -1,0 +1,35 @@
+<!-- BEGIN: bottom -->
+    </div>
+  </div>
+  <footer class="mainFooter">
+      <div class="container">
+          <nav>
+              <ul>
+                  <li><a href="/privacy.html">Privacy</a></li>
+                  <li><a href="/about.html">About us</a></li>
+              </ul>
+          </nav>
+          <div class="copyright">privtext.com 2015 &copy;</div>
+      </div>
+  </footer>
+
+  {FILE "popupQRCode.xtpl"}
+  {FILE "popupErrorMaxSize.xtpl"}
+
+  <!--script type="text/javascript" src="/files/js/bootstrap.min.js"></script-->
+  <script type="text/javascript" src="/files/js/plugins.js"></script>
+  <script type="text/javascript" src="/files/js/ZeroClipboard.min.js"></script>
+
+  <script type="text/javascript" src="/files/js/jquery-qrcode-0.17.0.min.js"></script>
+
+  <!-- BEGIN: mode_normal_jslib -->
+    <script type="text/javascript" src="/files/js/main.js?v_=030620201546"></script>
+  <!-- END: mode_normal_jslib -->
+
+  <!-- GOOGLE ANALYTIC BLOCK : BEGIN -->
+  <!-- -->
+  <!-- GOOGLE ANALYTIC BLOCK : END -->
+        
+</body>
+</html>
+<!-- END: bottom -->

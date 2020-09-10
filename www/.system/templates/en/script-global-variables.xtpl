@@ -1,0 +1,18 @@
+    <script type="text/javascript">
+      var _API_PAGE_LANGUAGE = '{LANGUAGE}';
+      var _API_GOOGLE_ANALYTIC_ID = '{GOOGLE_ANALYTIC_ID}';
+      var _API_SITEHOST_NAME = '{SITEHOST_NAME}';
+    </script>
+    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript">window.jQuery || document.write('<script src="/files/js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+        
+    <script type="text/javascript" src="/files/js/jquery.qrcode-0.12.0.min.js"></script>
+    <script type="text/javascript" src="/files/js/sha.js"></script>
+    <script type="text/javascript" src="/files/js/aes.js"></script>
+
+    <!-- BEGIN: mode_normal_jslib -->
+      <script type="text/javascript" src="/files/js/libs.js?v=030620201546"></script>
+    <!-- END: mode_normal_jslib -->
+
+    

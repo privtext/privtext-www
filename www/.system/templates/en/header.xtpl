@@ -1,0 +1,24 @@
+<!-- BEGIN: header -->
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1">
+  {FILE "../meta-favicon.xtpl"}
+  
+  <title>{PAGE_TITLE}</title>
+  <meta name="keywords" content="{PAGE_SEO_KEYWORDS}" />
+  <meta name="description" content="{PAGE_SEO_DESCRIPTION}" />
+  
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/files/css/normalize.css">
+  <link rel="stylesheet" href="/files/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/files/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/files/css/main.css">
+  <script src="/files/js/vendor/modernizr-2.8.3.min.js"></script>
+  
+  {FILE "script-global-variables.xtpl"}
+</head>
+<!-- END: header -->

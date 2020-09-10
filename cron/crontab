@@ -1,0 +1,1 @@
+* * * * * cd {PROJECT_PATH}/www && php -f index.php action=clear_old_notes |tee -a {PROJECT_PATH}/logs/clear_old_notes.log

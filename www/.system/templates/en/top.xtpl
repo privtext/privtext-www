@@ -1,0 +1,74 @@
+<!-- BEGIN: top -->
+<body class="page-{PAGE_LINKID} {NOTE_SETTINGS_CLASS_body}">
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <!-- <div class="underBg {NOTE_SETTINGS_CLASS_underBg}"></div> -->
+
+        <div class="wrapLeftSettings {NOTE_SETTINGS_CLASS_wrapLeftSettings}">
+            <div class="blockLeftSettings">
+                <a href="" class="btnCloseSettings js-hideSettings">&times;</a>
+                <div class="nameBlock">Settings</div>
+                <form action="">
+                  
+                    <div class="fieldGroup liveTime">
+                      <select id="timelive" class="js-itemLeftSettings">
+                          <option value="0">after being read</option>
+                          <option value="3600">1 hour from now</option>
+                          <option value="86400">1 day from now</option>
+                          <option value="259200">3 days from now</option>
+                          <option value="604800">1 week from now</option>
+                          <option value="2592000">1 month from now</option>
+                      </select>
+                    </div>
+                    
+                    <script type="text/javascript">
+                      /* <!-- */
+                      $('#timelive').change(function(){
+                        describeSelected(this);
+                        /*$('.note-delete-message').hide();
+                        $('.note-delete-message-'+$(this).val()).show();*/
+                      });
+                      /* --> */
+                    </script>
+                    
+                    <div class="hiddenDescriptionField">Note self-destructs</div>
+                    <div class="fieldGroup PassDecode">
+                        <input id="encpasswd" type="text" class="js-itemLeftSettings" placeholder="Password encryption">
+                    </div>
+                    <div class="hiddenDescriptionField">Enter a custom password to encrypt the note</div>
+                    <div class="fieldGroup emailMessage">
+                        <input type="text" id="noticemail" class="js-itemLeftSettings" placeholder="Notification e-mail">
+                    </div>
+                    <div class="hiddenDescriptionField">E-mail to notify when note is destroyed</div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="wrapperOutside">
+            <div class="wrapperInside">
+                <header class="mainHeader">
+                    <div class="underBg {NOTE_SETTINGS_CLASS_underBg}"></div>
+                    <div class="container">
+                        <a href="#" class="topTopLinkSettings js-showSettings"></a>
+                        <a href="#" class="btnOpenMobileMenu js-showMobileMenu"></a>
+                        <nav>
+                            <a href="#" class="btnCloseNav js-hideMobileMenu">&times;</a>
+                            <ul>
+                                <li><a class="pahe-m-index" href="/">Home</a></li>
+                                <li><a class="pahe-m-api" href="/api.html">API</a></li>
+                                <li><a class="pahe-m-contact" href="/contact.html">Contact</a></li>
+                                <li><a class="pahe-m-soft" href="/soft.html">Soft</a></li>
+                            </ul>
+                        </nav>
+                        <a href="/" class="logo">Privtext.<span>com</span></a>
+                    </div>
+                </header>
+                
+        <script type="text/javascript">
+        /* <!-- */
+          $('.mainHeader .pahe-m-{PAGE_LINKID}').addClass('active');
+        /* --> */
+        </script>
+<!-- END: top -->

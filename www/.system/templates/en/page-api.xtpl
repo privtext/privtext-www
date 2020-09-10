@@ -1,0 +1,86 @@
+{FILE "header.xtpl"}
+{FILE "top.xtpl"}
+<!-- BEGIN: main -->
+
+  <main>
+    <div class="container">
+      <h1>API Specification:</h1>
+      <p>The data is encrypted with AES algorithm in CBC mode with a 256 bits key length and 128-bit vector activation.</p>
+      <p>The key and the vector are generated on the based on user’s password with addition of modifier (salt) in the form of random values and hash of the previous iteration.</p>
+      <h2>Creating Token</h2>
+      <p>For the purpose of the incoming coded record acceptance by the system, it is necessary to create a temporary password:</p>
+      <ol>
+        <li>
+          <strong>You should receive data for single access password:</strong><br />
+          POST request to /api/proof with the following data:
+          <pre>
+  {
+    action: "get_proof_password",
+    ajax: 1
+  }
+          </pre>
+          Then, you will receive:
+          <pre>
+  {
+    action: "get_proof_password",
+    ajax_status: "ok",
+    algorithm: "sha256",
+    prefix: YOUR_PREFIX_OF_WORK,
+    target: YOUR_TARGET_OF_WORK
+  }
+          </pre>
+        </li>
+        <li>
+          <strong>Temporary password creation:</strong><br />
+          <ul>
+          	<li>The temporary password is a subject to getting string to hash using sha256 algorithm, by concatenation of: YOUR_PREFIX_OF_WORK, current Timestamp and iterations.</li>
+          	<li>The last iteration ends in case of string to hash value should be less or equal YOUR_TARGET_OF_WORK value;</li>
+          </ul>
+        </li>
+      </ol>
+      <p>For more details and examples we recommend you to check the <a href="/soft.html">Сlient software</a> in "Python client" section.</p>
+      <h2>Sending the created record to the server:</h2>
+      <p>It claims a POST request to /api/note with the following options:</p>
+      <pre>
+  {
+    action: "save_note",
+    note: YOUR_NOTE_HERE,
+    proof: YOUR_PROOF_OF_WORK,
+    timelive: SECONDS_AFTER_READ,
+    noticemail': USER_NOTIFY_EMAIL,
+    ajax: 1
+  }
+      </pre>
+      <p>You will receive:</p>
+      
+      <pre>
+  {
+    "ajax_status": "ok",
+    "action": "save_note",
+    "id": YOUR_NOTE_ID,
+    "url": YOUR_NOTE_URL_WITHOUT_PASS
+  }
+      </pre>
+      
+      <h2>The final secured URL will be:</h2>
+      <pre>
+  "https://privtext.com" + YOUR_NOTE_URL_WITHOUT_PASS + '#' + YOUR_PRIVATE_PASS
+      </pre>
+      <p>YOUR_PRIVATE_PASS  is the secret password from the user. You could skip it in if want your password hidden.</p>
+      <p>For example:</p>
+          <pre>
+  YOUR_NOTE_URL_WITHOUT_PASS = "/VZcOjkE1.html"
+  YOUR_PRIVATE_PASS = "q1W2E3r4t"
+  
+  # The complete reference record:
+  https://privtext.com/VZcOjkE1.html#q1W2E3r4t
+          </pre>
+      
+      {FILE "footer-more-blocks-text.xtpl"}
+      
+    </div>
+  </main>
+
+  
+<!-- END: main -->
+{FILE "bottom.xtpl"}

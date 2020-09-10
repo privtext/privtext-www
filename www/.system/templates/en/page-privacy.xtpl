@@ -1,0 +1,65 @@
+{FILE "header.xtpl"}
+{FILE "top.xtpl"}
+<!-- BEGIN: main -->
+
+  <main>
+    <div class="container">
+      <h1>Privacy Policy</h1>
+      <p>Last change: September 5th, 2015</p>
+			<p>PrivText privacy is our primary concern, as the main aim of the service is to provide it. This policy makes stress on the measures taken by PrivText to save the data of the users in private.</p>
+			<ol>
+				<li>
+					<strong>Description of the service</strong><br />
+					PrivText is a free online service which provides an opportunity to create encrypted text messages the customers can share over the internet via unique one-time HTTPS link which is deleted automatically right after the first access to message through any web browser.<br />
+					As PrivText is not a channel for sending the link, the act of transmitting any kind of info through the link is the full responsibility of PrivText customers.<br />
+					There is a risk that the third parties may open the link, if the transferring channel link is not private.<br />
+				</li>
+				
+				<li>
+					<strong>Processing the Notes and its contents</strong><br />
+					Generation of the link takes place in the user's browser and at no time is forwarded as such to PrivText. Thus, the link is visible to sender exclusively (and later, potentially recipient can see it either). So it is not possible to restore a Note if a PrivText user losses the link.<br />
+					Due to the fact that the link is tied to the decoding key and the Pretext has no access to that link - it makes the Note, transmitted through the link, unreadable even for Pretext. That gives you a guarantee that no one can read this Note (including PrivText's administrators).<br />
+					The data of extracted Note is completely deleted from PrivText; it is not possible to restore it again.<br />
+					If a Note is not extracted after 30 days (1 year?), PrivText will delete it constantly, like as if it were read.<br />
+					PrivText sysadmin team will do their best to protect the site from unauthorized access, changing or damaging the data. Even, if someone receives the access to database, it would be not possible to read the Notes as their contents are codified and can't be de-codified without the links which PrivText never has a hold of.<br />
+				</li>
+
+				<li>
+					<strong>User's IP addresses</strong><br />
+					PrivText just use customer's IP addresses to provide a connection with PrivNote's servers. PrivText does not register user's IP addresses. And all information about IP addresses is deleted immediately after session.<br />
+				</li>
+
+				<li>
+					<strong>Anonymous data</strong><br />
+					The user can create a note containing personal info. All this info is anonymous  as it's not possible to recognize the note's creator from PrivText's database. Furthermore PrivText does not keep users' IP addresses. <br />
+					The decryption of the note is available only for the creator of the note and recepient of it. PrivText is not able to decrypt the note and thus do not have an access to personal data.<br />
+				</li>
+
+				<li>
+					<strong>Disclaimer</strong><br />
+					PrivText has no access to stored data and can't be responsible for content of the Note.<br />
+				</li>
+
+				<li>
+					<strong>Relations with Third Parties</strong><br />
+					PrivText does not use customer's information in any way not mentioned in this Privacy Policy, neither shares nor sells it to any third parties.<br />
+				</li>
+
+				<li>
+					<strong>Use of cookies</strong><br />
+					Cookies are stored only during session and are deleted immediately after message is opened. It is used to keep a session in the user's preferred language and as the element of url masking mechanism when using service, thus cookies must be enabled.<br />
+				</li>
+
+				<li>
+					<strong>Validity of third Privacy Policy</strong><br />
+					Please be informed that this policy may be amended. But fundamental changes are not expected, but if any  - those will be reflected on the front page of the site. <br />
+				</li>
+			</ol>
+			<p>If you have any questions regarding our policy, please do not hesitate to contact us. <br /></p>
+    </div>
+  </main>
+
+  
+  
+<!-- END: main -->
+{FILE "bottom.xtpl"}

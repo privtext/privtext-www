@@ -1,0 +1,19 @@
+{FILE "header.xtpl"}
+{FILE "top.xtpl"}
+<!-- BEGIN: main -->
+
+  <main>
+    <div class="container">
+      <h1>About PrivText</h1>
+      <p>Everyone experiences the need to send something private to your close friends and family, within the work space. Sometimes you worry about how to do that in a more secure way, not to get tracked or spied. </p>
+      <p>PrivText is a free online service that will let you send any top secret information over the internet. It's prompt, easy service for anyone and you won't need no secret code or registration.</p>
+      <p>Just type your note, create a link, copy and paste that link into an email (or instant message) that you send to recipient. When the recipient clicks on the link  he or she  will see the note-message you've sent in the browser and the message will be automatically deleted right after; So no one will ever read it again. The link will be no longer active.<br /></p>
+      <p>There is an option which informs you  that the note is already read. It is done via e-mail you leave while sending the message.</p>
+      <p>If you have any questions, do not hesitate to contact us, but don't forget to check our Frequently Asked Questions first.</p>
+      <p>Do not worry about Privacy issues, just read our Privacy Policy.</p>
+      <p>Please try PrivText!</p>
+    </div>
+  </main>
+  
+<!-- END: main -->
+{FILE "bottom.xtpl"}

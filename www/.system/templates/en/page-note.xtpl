@@ -1,0 +1,124 @@
+{FILE "header.xtpl"}
+{FILE "top.xtpl"}
+<!-- BEGIN: main -->
+  <main>
+    <div class="container result-hide">
+      <div class="presented-note" <!-- BEGIN: emptynote -->style="display: none;"<!-- END: emptynote -->>
+        <p class="lead">
+          <span style="display: none;" id="timelive1">The note will self-destruct in <span id="note_delete_minutes">XX</span> minutes and <span id="note_delete_seconds">XX</span> seconds.</span>
+          <span style="display: none;" id="timelive0">The note has been self-destructed.</span>
+        </p>
+        <form action="">
+            <div class="wrapContentForm">
+              <div class="titleForm"><a href="" data-clipboard-target="privdata" class="btnCopy js-copyToBuffer">Copy note</a> <!--  Select note --></div>
+              <p style="margin: 0;">
+                  <textarea name="privdata" readonly="readonly" id="privdata" cols="30" rows="10" class="form-control" placeholder="Result your message here..."></textarea>
+              </p>
+              <div class="managerForm">
+                  <div class="btnsForm">
+                      <a href="#" onclick="return false;" class="btn btnGreen btnReply">Reply</a>
+                      <a href="/" class="btn btnGreen btnNew"><span>+</span> New</a>
+                      <input type="hidden" id="proof" value="">
+                  </div>
+                  <a href="" style="display: none;" class="button-delete-message-now btn btnGreen">Delete Now</a> 
+              </div>
+            </div>
+        </form>
+        <p class="result-link">Timer: <span id="timer"></span></p>
+      </div>
+      
+      <div class="empty-note" <!-- BEGIN: no_emptynote -->style="display: none;"<!-- END: no_emptynote -->>
+        <h1>Note destroyed</h1><br />
+        The note with <strong>id {PAGE_NOTE_ID}</strong> was read and destroyed.<br />
+       <br />
+       If you haven't read this note it means someone else has. If you read it but forgot to write it down, then you need to ask whoever sent it to re-send it.
+        <div class="btnsForm">
+          <br />
+          <a href="/" class="btn btnGreen">Create Note</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script type="text/javascript">
+  
+  	$('.js-copyToBuffer').click(function(e){
+  		e.preventDefault();
+  		// document.getElementById("privdata").select();
+
+
+      // document.getElementById("privdata").select();
+      // document.execCommand('copy');
+
+      el = document.getElementById("privdata");
+
+      // handle iOS as a special case
+      if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
+
+          // save current contentEditable/readOnly status
+          var editable = el.contentEditable;
+          var readOnly = el.readOnly;
+
+          // convert to editable with readonly to stop iOS keyboard opening
+          el.contentEditable = true;
+          el.readOnly = true;
+
+          // create a selectable range
+          var range = document.createRange();
+          range.selectNodeContents(el);
+
+          // select the range
+          var selection = window.getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          el.setSelectionRange(0, 999999);
+
+          // restore contentEditable/readOnly to original state
+          el.contentEditable = editable;
+          el.readOnly = readOnly;
+      }
+      else {
+          el.select();
+      }
+
+      document.execCommand('copy');
+
+      
+
+  		return false;
+  	});
+  
+    widgetPrivText.init(widgetPrivText.MODE_DECODE, '#privdata', null, null);
+    widgetPrivText.setopt('proof_result_time_selector', '#timer');
+    widgetPrivText.setopt('proof_result_handler',function(proof){ $('#proof').val(proof); });
+    widgetPrivText.run();
+    widgetPrivText.start();
+    
+    
+    $('.btnReply').click(
+      function(){
+        $.ajax(
+          {
+            url: document.location.pathname,
+            cache: false,
+            method: 'POST',
+            data:{ ajax: 1, action: 'get_reply_block' },
+            success: function(response){
+              var textreply = "> "+($('#privdata').val().replace(new RegExp("\n",'g'),"\n>"))+"\n>\n\n";
+              $('.wrapperInside main').html(response);
+              $('#privdata').val(textreply);
+              if ($(window).width() < 768) {
+                $('.mainHeader .js-showSettings').show();
+              }
+            }
+          }
+        );
+      }
+    );
+  </script>
+  
+  {FILE "popupConfirm.xtpl"}
+  {FILE "popupPrompt.xtpl"}
+  
+<!-- END: main -->
+{FILE "bottom.xtpl"}

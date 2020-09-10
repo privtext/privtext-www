@@ -1,0 +1,81 @@
+{FILE "header.xtpl"}
+{FILE "top.xtpl"}
+<!-- BEGIN: main -->
+
+  <main>
+    <div class="container">
+      <h1>Contact</h1>
+      <p>If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.</p>
+      <div id="contact_form">
+        <div class="row">
+          <div class="col-lg-5">
+
+            <form id="contact-form" method="post" role="form">
+              <input type="hidden" name="action" value="send_contact_form">
+              <div class="form-group field-contactform-name required">
+                <label class="control-label" for="contactform-name">Name</label>
+                <input type="text" value="{REPAIR_USER_NAME}" id="contactform-name" class="form-control" name="user_name">
+                <p class="help-block help-block-error">
+                  <!-- BEGIN: user_name_empty -->Empty user name<!-- END: user_name_empty -->
+                </p>
+              </div>
+              <div class="form-group field-contactform-email required">
+                <label class="control-label" for="contactform-email">Email</label>
+                <input type="text"  value="{REPAIR_USER_EMAIL}" id="contactform-email" class="form-control" name="user_email">
+                <p class="help-block help-block-error">
+                  <!-- BEGIN: user_email_empty -->Empty user email<!-- END: user_email_empty -->
+                </p>
+              </div>
+              <div class="form-group field-contactform-subject required">
+                <label class="control-label" for="contactform-subject">Subject</label>
+                <input type="text" value="{REPAIR_MESSAGE_SUBJECT}" id="contactform-subject" class="form-control" name="message_subject">
+                <p class="help-block help-block-error">
+                  <!-- BEGIN: message_subject_empty -->Empty post subject<!-- END: message_subject_empty -->
+                </p>
+              </div>
+              <div class="form-group field-contactform-body required">
+                <label class="control-label" for="contactform-body">Body</label>
+                <textarea id="contactform-body" class="form-control" name="user_message" rows="6">{REPAIR_USER_MESSAGE}</textarea>
+                <p class="help-block help-block-error">
+                  <!-- BEGIN: message_empty -->Empty post message<!-- END: message_empty -->
+                </p>
+              </div>    
+              <div class="form-group field-contactform-verifycode">
+                <label class="control-label" for="contactform-verifycode">Verification Code</label>
+                <div class="row">
+                  <div class="col-xs-3">
+                    <img id="contactform-verifycode-image" src="/captcha/rand.php" alt="">
+                  </div>
+                  <div class="col-md-6 col-xs-9">
+                    <input type="text" id="contactform-verifycode" class="form-control" name="captcha">
+                    <p class="help-block help-block-error">
+                    <!-- BEGIN: captcha_invalid -->Invalid field<!-- END: captcha_invalid -->
+                    <!-- BEGIN: captcha_empty -->Captcha is empty<!-- END: captcha_empty -->
+                  </p>
+                  </div>
+                </div>
+
+                <p class="help-block help-block-error"></p>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btnGreen">Submit</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+  
+  <!-- BEGIN: sucess_send_mail -->
+   <script type="text/javascript">
+    /* <!-- */
+       $('main .container').html("<h1>Contact</h1><p>Your request has been sended.</p>");
+    /* --> */
+   </script>
+  <!-- END: sucess_send_mail -->
+  
+<!-- END: main -->
+{FILE "bottom.xtpl"}

@@ -1,0 +1,12 @@
+  <div class="popupWrapper js-popupConfirm">
+    <div class="contentPopup">
+      <a class="btnHidePopup js-closePopup">&times;</a>
+      <div class="requestPopup">
+        <p>Would you like to read the Note now or later?</p>
+      </div>
+      <div class="managePopup">
+        <a href="#" class="btn left btnGreen js-confirmNowPopup">Now</a>
+        <a href="#" class="btn right js-closePopup">Later</a>
+      </div>
+    </div>
+  </div>

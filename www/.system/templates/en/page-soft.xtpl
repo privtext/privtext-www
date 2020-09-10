@@ -1,0 +1,112 @@
+{FILE "header.xtpl"}
+{FILE "top.xtpl"}
+<!-- BEGIN: main -->
+
+  <main>
+    <div class="container">
+      <h1>Client Soft on desktop / laptop</h1>
+      <div id="tabSoft" class="wrapperTabs">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#softWin" data-toggle="tab" class="js-tabLink">Windows</a></li>
+          <li><a href="#softMac" data-toggle="tab" class="js-tabLink">Mac OS</a></li>
+          <li><a href="#softUnix" data-toggle="tab" class="js-tabLink">Unix/Linux</a></li>
+          <li><a href="#softOther" data-toggle="tab" class="js-tabLink">Python Client</a></li>
+        </ul>
+
+        <div class="tab-content">
+          <div class="tab-pane active" id="softWin">
+          	<p><strong>For MS Windows XP/7/8/10</strong> Download and run <a href="#">this installer</a></p>
+          </div>
+          <div class="tab-pane" id="softMac">
+          	<strong>For MAC OS X</strong> Download <a href="#">archive</a>, unpack it, and run install.sh
+          </div>
+          <div class="tab-pane" id="softUnix">
+			<strong>C Source code for Make:</strong><br />
+			1. Download Source code <a href="/bin/unix/make/privtext-2.0.zip">archive</a> and unpack in the folder;<br />
+			2. Open terminal (console) and go to that folder.<br />
+			3. Run command `make`<br />
+			4. Run command `sudo make install`
+          </div>
+          <div class="tab-pane" id="softOther">
+          	<strong>Python client</strong>
+          	<p><i>Obligatory software to use script:</i></p>
+          	<ul>
+          		<li>Python 2.x version >= 2.4 - 2.7 (priority v.<a href="https://www.python.org/downloads/">2.7</a>)</li>
+          		<li>python module "argparse"</li>
+          		<li>python module "pycrypto"</li>
+          	</ul>
+          	<h2>Manual install</h2>
+          	<p>Install <a href="https://pip.pypa.io/en/latest/installing/">pip</a> from official repository.</p>
+          	<pre>
+	sudo pip install argparse
+	sudo pip install pycrypto
+          	</pre>
+          	<p>Download Python script <a href="/bin/privtext.py">privtext.py</a> and save to any of your folders.</p>
+          	<p><i>* Note:</i> If you are using linux/unix perform the following command:</p>
+          	<pre>
+  sudo cp [your_folder_path/]privtext.py /usr/bin/privtext
+          	</pre>	
+        		<p>Using client as local service "privtext" i.e. without full path to Client script.</p>
+          	
+          	<h2>Automate install:</h2>
+          	<p>For linux/unix OS with package manager as <i>apt-get</i> or <i>yum</i> you can run `install.sh` from <a href="/bin/unix/release/privtext.zip">archive</a> with all needed commands.</p>
+		      </div>
+        </div>
+      </div>
+      
+      <h2>HELP:</h2>
+      Run CMD / console / terminal:
+	  <pre>
+  <b><i>~@~: privtext -h</i></b>
+  
+  usage: privtext [-h] [-t SOME TEXT] [-f FILE PATH] [-o FILE PATH]
+			[-k PASSWORD LENGTH] [-p ENCRYPT PASSWORD]
+			[-l {right,1hour,1day,3days,1week,1month}] [-e NOTIFY EMAIL]
+			[-v]
+
+  Create your private note.
+  -------------------------
+  We do not have an access to your data, since a decryption key is not stored.
+  We only generate a key, crypt your data, and return you the key.
+  We use 256-bit symmetric AES encryption.
+  -------------------------						
+
+  optional arguments:
+  -h, --help        	Show this help message
+  -t SOME TEXT, --text SOME TEXT
+                    	Run script with your text.
+  -f FILE PATH, --file FILE PATH
+                    	Run script which enters your file and  makes link for each row within (max 30 rows)
+  -o FILE PATH, --outfile FILE PATH
+                    	Saves the info to the specified file
+  -k PASSWORD LENGTH, --keysize PASSWORD LENGTH
+                    	Set secret password length  for  password generator.
+  -p ENCRYPT PASSWORD, --password ENCRYPT PASSWORD
+                    	Set custom user's password
+  -l {afterread,1hour,1day,3days,1week,1month,1year}, --lifetime {after read,1hour,1day,3days,1week,1month,1year}
+                    	Set time live for your Note.
+  -e NOTIFY EMAIL, --email NOTIFY EMAIL
+                    	E-mail to notify when Note is destroyed.
+  -v, --verbose     	Print the Python version number and exit
+
+  -------------------------
+  * NOTE: key's value `--text`, `--file`, `--outfile`, what have one or more space -
+  It must be incapsulate by " or '
+  -------------------------
+	  </pre>
+	  Run with no options  by double click or `Enter` button:
+	  <pre>
+  You’ve run program by double click or `Enter` button.
+  For more details, try to run from terminal (command line) `privtext -h` or `privtext --help`
+
+  Now, please enter your Note:
+  <i>YOUR_NOTE</i>
+	  </pre>
+      
+      {FILE "footer-more-blocks-text.xtpl"}
+      
+    </div>
+  </main>
+  
+<!-- END: main -->
+{FILE "bottom.xtpl"}
